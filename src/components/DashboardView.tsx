@@ -20,6 +20,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { ExamType, MockTest, PharmacyUpdate, StudyPlanDay, TestResult, UserCustomNote } from '../types/pharmacy';
+import { AppDownloadButton } from './AppDownloadButton';
 import { NavTab } from './Sidebar';
 
 interface DashboardViewProps {
@@ -36,6 +37,7 @@ interface DashboardViewProps {
   updates: PharmacyUpdate[];
   onOpenNewNote: () => void;
   onOpenStudyNote: (noteId: string) => void;
+  onOpenDownloadModal: () => void;
 }
 
 export const DashboardView: React.FC<DashboardViewProps> = ({
@@ -52,6 +54,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   updates,
   onOpenNewNote,
   onOpenStudyNote,
+  onOpenDownloadModal,
 }) => {
   const calculateDaysRemaining = (targetDate: string) => {
     const target = new Date(targetDate).getTime();
@@ -175,6 +178,9 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           </div>
         </div>
       </div>
+
+      {/* App Download Callout Banner */}
+      <AppDownloadButton onOpenModal={onOpenDownloadModal} variant="banner" />
 
       {/* 3. Main Dashboard Two-Column Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

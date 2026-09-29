@@ -4,6 +4,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
+import { AppDownloadModal } from './components/AppDownloadModal';
 import { DailyQuizView } from './components/DailyQuizView';
 import { DashboardView } from './components/DashboardView';
 import { FlashcardsView } from './components/FlashcardsView';
@@ -57,6 +58,7 @@ export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [selectedStudyNoteId, setSelectedStudyNoteId] = useState<string | null>(null);
   const [initialEditingNoteId, setInitialEditingNoteId] = useState<string | null>(null);
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
 
   // Initialize storage states
   useEffect(() => {
@@ -178,6 +180,7 @@ export default function App() {
         onToggleOffline={handleToggleOffline}
         onOpenQuickQuiz={() => setCurrentTab('daily-quiz')}
         onOpenNewNote={handleOpenNewNote}
+        onOpenDownloadModal={() => setIsDownloadModalOpen(true)}
         onToggleMobileMenu={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
       />
 
@@ -193,6 +196,7 @@ export default function App() {
           userNotesCount={userNotes.length}
           uncompletedPlanTasks={uncompletedPlanTasks}
           onOpenOfflineModal={() => setIsOfflineModalOpen(true)}
+          onOpenDownloadModal={() => setIsDownloadModalOpen(true)}
           isOffline={isOffline}
           isOpenMobile={isMobileMenuOpen}
           onCloseMobile={() => setIsMobileMenuOpen(false)}
@@ -214,6 +218,7 @@ export default function App() {
               updates={PHARMACY_UPDATES}
               onOpenNewNote={handleOpenNewNote}
               onOpenStudyNote={handleOpenStudyNoteFromDashboard}
+              onOpenDownloadModal={() => setIsDownloadModalOpen(true)}
             />
           )}
 
@@ -301,6 +306,12 @@ export default function App() {
         isOffline={isOffline}
         onToggleOffline={handleToggleOffline}
         userNotesCount={userNotes.length}
+      />
+
+      {/* 5. App Download & Installation Modal */}
+      <AppDownloadModal
+        isOpen={isDownloadModalOpen}
+        onClose={() => setIsDownloadModalOpen(false)}
       />
     </div>
   );

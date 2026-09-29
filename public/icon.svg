@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="pharmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e" />
+      <stop offset="50%" stop-color="#0d9488" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#042f2e" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Background rounded squircle with shadow -->
+  <rect width="512" height="512" rx="112" fill="url(#pharmGrad)" filter="url(#shadow)"/>
+
+  <!-- Subtle glow inner ring -->
+  <rect x="16" y="16" width="480" height="480" rx="96" fill="none" stroke="#5eead4" stroke-width="4" stroke-opacity="0.25"/>
+
+  <!-- Medical Cross & Rx Motif -->
+  <!-- Cross Accent in Background -->
+  <path d="M256 120 V392 M120 256 H392" stroke="#2dd4bf" stroke-width="28" stroke-linecap="round" stroke-opacity="0.2"/>
+
+  <!-- Bold Clean "Rx" Pharmaceutical Symbol -->
+  <!-- Letter R -->
+  <path d="M168 152 V360 M168 152 H260 C296 152 320 172 320 208 C320 244 296 264 260 264 H168 M248 264 L336 360" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="36" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+
+  <!-- Cross stroke of the Rx -->
+  <path d="M280 292 L368 344 M368 292 L280 344" 
+        fill="none" 
+        stroke="#fde047" 
+        stroke-width="24" 
+        stroke-linecap="round"/>
+
+  <!-- Graduation Cap / Excellence Star Accent in top right -->
+  <path d="M372 136 L400 120 L428 136 L400 152 Z" fill="#fde047"/>
+  <path d="M428 136 V160" stroke="#fde047" stroke-width="4" stroke-linecap="round"/>
+</svg>

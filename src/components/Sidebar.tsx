@@ -16,6 +16,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { ExamType } from '../types/pharmacy';
+import { AppDownloadButton } from './AppDownloadButton';
 
 export type NavTab =
   | 'dashboard'
@@ -36,6 +37,7 @@ interface SidebarProps {
   userNotesCount: number;
   uncompletedPlanTasks: number;
   onOpenOfflineModal: () => void;
+  onOpenDownloadModal: () => void;
   isOffline: boolean;
   isOpenMobile?: boolean;
   onCloseMobile?: () => void;
@@ -48,6 +50,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   userNotesCount,
   uncompletedPlanTasks,
   onOpenOfflineModal,
+  onOpenDownloadModal,
   isOffline,
   isOpenMobile,
   onCloseMobile,
@@ -138,8 +141,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </nav>
         </div>
 
-        {/* Bottom: Offline Storage & Sync Info */}
-        <div className="p-3 border-t border-slate-200 bg-slate-50/50">
+        {/* Bottom: Download App & Offline Storage */}
+        <div className="p-3 border-t border-slate-200 bg-slate-50/50 space-y-2">
+          {/* Download App Action */}
+          <AppDownloadButton onOpenModal={onOpenDownloadModal} variant="sidebar" />
+
+          {/* Offline Storage & Sync Info */}
           <button
             onClick={onOpenOfflineModal}
             className="w-full flex items-center justify-between p-2.5 rounded-xl bg-white border border-slate-200 hover:border-slate-300 shadow-xs hover:shadow-sm text-left transition-all group"

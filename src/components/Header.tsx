@@ -15,6 +15,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { ExamType } from '../types/pharmacy';
+import { AppDownloadButton } from './AppDownloadButton';
 
 interface HeaderProps {
   currentExam: ExamType;
@@ -26,6 +27,7 @@ interface HeaderProps {
   onToggleOffline: () => void;
   onOpenQuickQuiz: () => void;
   onOpenNewNote: () => void;
+  onOpenDownloadModal: () => void;
   onToggleMobileMenu?: () => void;
 }
 
@@ -39,6 +41,7 @@ export const Header: React.FC<HeaderProps> = ({
   onToggleOffline,
   onOpenQuickQuiz,
   onOpenNewNote,
+  onOpenDownloadModal,
   onToggleMobileMenu,
 }) => {
   const [showDatePicker, setShowDatePicker] = useState(false);
@@ -172,10 +175,13 @@ export const Header: React.FC<HeaderProps> = ({
             )}
           </button>
 
+          {/* Download App CTA Button */}
+          <AppDownloadButton onOpenModal={onOpenDownloadModal} variant="header" />
+
           {/* Quick Note CTA */}
           <button
             onClick={onOpenNewNote}
-            className="hidden sm:flex items-center gap-1 px-3 py-1.5 bg-slate-900 text-white hover:bg-slate-800 rounded-lg text-xs font-semibold shadow-xs transition-colors"
+            className="hidden sm:flex items-center gap-1 px-3 py-1.5 bg-slate-900 text-white hover:bg-slate-800 rounded-lg text-xs font-semibold shadow-xs transition-colors cursor-pointer"
           >
             <span>+ Note</span>
           </button>
