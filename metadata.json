@@ -1,0 +1,7 @@
+{
+  "name": "PharmPrep Pro - GPAT & NIPER Exam Master",
+  "description": "Comprehensive GPAT, NIPER JEE & Pharmacy exam preparation platform featuring daily quizzes, NTA-pattern mock tests, high-yield study notes, previous year question papers, performance analytics, personal study planner, and offline study notebook.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
